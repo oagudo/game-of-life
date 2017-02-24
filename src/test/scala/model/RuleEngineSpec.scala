@@ -17,5 +17,20 @@ class RuleEngineSpec extends FunSpec {
       assert(RuleEngine.nextState(Live, List(Live, Live)) == Live)
     }
 
+    it("should keep alive any live cell with three live neighbours") {
+      assert(RuleEngine.nextState(Live, List(Live, Live, Live)) == Live)
+    }
+
+    it("should kill any live cell with more than three live neighbours") {
+      assert(RuleEngine.nextState(Live, List(Live, Live, Live, Live)) == Dead)
+    }
+
+    it("should revive any dead cell with exactly three live neighbours") {
+      assert(RuleEngine.nextState(Dead, List(Live, Live, Live)) == Live)
+    }
+
+    it("should not revive any dead cell with exactly two live neighbours") {
+      assert(RuleEngine.nextState(Dead, List(Live, Live)) == Dead)
+    }
   }
 }
