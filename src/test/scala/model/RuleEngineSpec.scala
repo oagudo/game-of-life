@@ -1,4 +1,4 @@
-import model.RuleEngine
+import model.{Dead, Live, RuleEngine}
 import org.scalatest.FunSpec
 
 class RuleEngineSpec extends FunSpec {
