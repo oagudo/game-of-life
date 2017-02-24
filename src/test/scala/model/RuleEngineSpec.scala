@@ -5,7 +5,11 @@ class RuleEngineSpec extends FunSpec {
 
   describe("A RuleEngine") {
 
-    it("should kill any lived cell with less than two live neighbours") {
+    it("should kill any lived cell with no live neighbour") {
+      assert(RuleEngine.nextState(Live, List(Dead)) == Dead)
+    }
+
+    it("should kill any lived cell with one live neighbour") {
       assert(RuleEngine.nextState(Live, List(Live)) == Dead)
     }
 

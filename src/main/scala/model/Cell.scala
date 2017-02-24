@@ -1,5 +1,5 @@
 package model
 
 sealed trait Cell
-case object Live extends Cell
-case object Dead extends Cell
+final case object Live extends Cell
+final case object Dead extends Cell
