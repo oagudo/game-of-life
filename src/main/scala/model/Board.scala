@@ -13,16 +13,8 @@ class Board(val dimension : Int) {
 
   positions.foreach(setCell(Dead, _))
 
-  def setCell(c : Cell, row : Int, column : Int): Unit = {
-    cells(row)(column) = c
-  }
-
   def setCell(c : Cell, p : Position): Unit = {
     cells(p.x)(p.y) = c
-  }
-
-  def getCell(row : Int, column : Int): Cell = {
-    return cells(row)(column)
   }
 
   def getCell(p : Position): Cell = {
